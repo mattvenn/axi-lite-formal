@@ -1,0 +1,65 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Sat May 18 17:48:38 2019
+[*]
+[dumpfile] "/home/matt/fpga/axi-lite-formal/xlnxdemo_prf/engine_0/trace.vcd"
+[dumpfile_mtime] "Sat May 18 17:37:15 2019"
+[dumpfile_size] 55576
+[savefile] "/home/matt/fpga/axi-lite-formal/xlnxdemo.gtkw"
+[timestart] 0
+[size] 1237 745
+[pos] -1 -1
+*-6.470208 33 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 335
+[signals_width] 300
+[sst_expanded] 1
+[sst_vpaned_height] 155
+@28
+[color] 3
+xlnxdemo.S_AXI_ARESETN
+[color] 3
+xlnxdemo.S_AXI_ACLK
+@200
+-
+@28
+xlnxdemo.S_AXI_AWVALID
+xlnxdemo.S_AXI_AWREADY
+@22
+xlnxdemo.S_AXI_AWADDR[6:0]
+@200
+-
+@28
+xlnxdemo.S_AXI_WVALID
+xlnxdemo.S_AXI_WREADY
+@22
+xlnxdemo.S_AXI_WSTRB[3:0]
+xlnxdemo.S_AXI_WDATA[31:0]
+@200
+-
+@29
+[color] 2
+xlnxdemo.S_AXI_BVALID
+@28
+[color] 2
+xlnxdemo.S_AXI_BREADY
+@200
+-
+@28
+xlnxdemo.S_AXI_ARVALID
+xlnxdemo.S_AXI_ARREADY
+@22
+xlnxdemo.S_AXI_ARADDR[6:0]
+@200
+-
+@28
+[color] 2
+xlnxdemo.S_AXI_RVALID
+[color] 2
+xlnxdemo.S_AXI_RREADY
+@22
+[color] 2
+xlnxdemo.S_AXI_RDATA[31:0]
+xlnxdemo.f_axi_rd_outstanding[3:0]
+xlnxdemo.f_axi_wr_outstanding[3:0]
+[pattern_trace] 1
+[pattern_trace] 0
