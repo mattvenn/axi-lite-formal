@@ -708,34 +708,38 @@ module xlnxdemo #
     wire [F_LGDEPTH-1:0] axi_wr_outstanding;     
     wire [F_LGDEPTH-1:0] axi_awr_outstanding;     
 
-    /*
+    // initial 
 initial axi_arready = 1'b0;
 initial axi_awready = 1'b0;
 initial axi_wready  = 1'b0;
-*/
 initial axi_bvalid  = 1'b0;
 initial axi_rvalid  = 1'b0;
 
-/*
-    always @(*) begin
-        if(S_AXI_ARESETN)
-        assert(axi_rd_outstanding < 2);
-        assert(axi_wr_outstanding < 2);
-    end
-    */
    /*
-    reg [F_LGDEPTH-1:0] bready_wait_count = 0;
-    reg [F_LGDEPTH-1:0] rready_wait_count = 0;
-    always @(posedge S_AXI_ACLK) begin
-        if(S_AXI_BREADY == 1'b0)
-            bready_wait_count <= bready_wait_count + 1;
-        if(S_AXI_RREADY == 1'b0)
-            rready_wait_count <= rready_wait_count + 1;
-        assume(bready_wait_count < 4); // don't make the slave wait for more than 4 cycles
-        assume(rready_wait_count < 4); // don't make the slave wait for more than 4 cycles
-    end
+   // 2 assertions needed for induction
+   always @(*)
+	if (S_AXI_ARESETN)
+	begin
+		assert(axi_rd_outstanding == ((S_AXI_RVALID)? 1:0));
+		assert(axi_wr_outstanding == ((S_AXI_BVALID)? 1:0));
+	end	
+	*/
+    /*
+    // this "fixes" the bugs
+    always @(*)
+//	    assume(S_AXI_BREADY == 1);
+	    assume(S_AXI_RREADY == 1);
     */
-    
+
+   // cover read and write
+   /*
+*/
+   //initial assume(S_AXI_ARESETN == 0);
+    always @(*)
+    begin
+	    cover(S_AXI_ARESETN && S_AXI_BREADY && S_AXI_BVALID); // write
+	    cover(S_AXI_ARESETN && S_AXI_RREADY && S_AXI_RVALID); // read
+    end
     faxil_slave #( 
             .F_LGDEPTH(F_LGDEPTH),
             .C_AXI_DATA_WIDTH(32),// Fixed, width of the AXI R&W data
@@ -780,7 +784,7 @@ initial axi_rvalid  = 1'b0;
         .f_axi_wr_outstanding(axi_wr_outstanding),
         .f_axi_awr_outstanding(axi_awr_outstanding)
     );
-
 `endif
+
 
 endmodule

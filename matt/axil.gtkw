@@ -1,50 +1,52 @@
 [*]
 [*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Sat May 18 20:28:56 2019
+[*] Sun May 19 15:58:29 2019
 [*]
-[dumpfile] "/home/matt/fpga/axi-lite-formal/matt/axil/engine_0/trace_induct.vcd"
-[dumpfile_mtime] "Sat May 18 20:26:11 2019"
-[dumpfile_size] 28331
-[savefile] "/home/matt/fpga/axi-lite-formal/matt/axil.gtkw"
+[dumpfile] "/home/mattvenn/axi-lite-formal/matt/axil/engine_0/trace0.vcd"
+[dumpfile_mtime] "Sun May 19 15:55:25 2019"
+[dumpfile_size] 72331
+[savefile] "/home/mattvenn/axi-lite-formal/matt/axil.gtkw"
 [timestart] 0
-[size] 1025 632
+[size] 1082 783
 [pos] -1 -1
-*-6.763438 100 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-6.763438 190 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] xlnxdemo.
 [treeopen] xlnxdemo.properties.
 [sst_width] 223
 [signals_width] 250
 [sst_expanded] 1
-[sst_vpaned_height] 162
+[sst_vpaned_height] 215
 @28
 xlnxdemo.S_AXI_ACLK
 xlnxdemo.S_AXI_ARESETN
-@200
--
--read address
-@28
-xlnxdemo.S_AXI_ARVALID
-xlnxdemo.S_AXI_ARREADY
 @200
 -
 -write address
 @28
 xlnxdemo.S_AXI_AWVALID
 xlnxdemo.S_AXI_AWREADY
+@22
+xlnxdemo.axi_awr_outstanding[3:0]
 @200
 -
 -write
 @28
 xlnxdemo.S_AXI_WVALID
 xlnxdemo.S_AXI_WREADY
-@22
-xlnxdemo.axi_wr_outstanding[3:0]
 @200
 -
 -write response
 @28
 xlnxdemo.S_AXI_BREADY
 xlnxdemo.S_AXI_BVALID
+@22
+xlnxdemo.axi_wr_outstanding[3:0]
+@200
+-
+-read address
+@28
+xlnxdemo.S_AXI_ARREADY
+xlnxdemo.S_AXI_ARVALID
 @200
 -
 -read
@@ -53,16 +55,7 @@ xlnxdemo.S_AXI_RREADY
 xlnxdemo.S_AXI_RVALID
 @22
 xlnxdemo.axi_rd_outstanding[3:0]
-@25
-xlnxdemo.properties.CHECK_MAX_DELAY.f_axi_rd_ack_delay[3:0]
-@200
--
--
-@22
-xlnxdemo.axi_awr_outstanding[3:0]
 @24
 xlnxdemo.properties.CHECK_MAX_DELAY.f_axi_rd_ack_delay[3:0]
-@22
-xlnxdemo.properties.CHECK_MAX_DELAY.f_axi_wr_ack_delay[3:0]
 [pattern_trace] 1
 [pattern_trace] 0
