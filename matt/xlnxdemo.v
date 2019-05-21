@@ -708,12 +708,18 @@ module xlnxdemo #
     wire [F_LGDEPTH-1:0] axi_wr_outstanding;     
     wire [F_LGDEPTH-1:0] axi_awr_outstanding;     
 
+
     // initial 
-initial axi_arready = 1'b0;
-initial axi_awready = 1'b0;
-initial axi_wready  = 1'b0;
-initial axi_bvalid  = 1'b0;
-initial axi_rvalid  = 1'b0;
+    /*
+    initial axi_arready = 1'b0;
+    initial axi_awready = 1'b0;
+    initial axi_wready  = 1'b0;
+    initial axi_bvalid  = 1'b0;
+    initial axi_rvalid  = 1'b0;
+    */
+
+    // or initial assume reset
+    initial assume(S_AXI_ARESETN == 0);
 
    /*
    // 2 assertions needed for induction
@@ -724,22 +730,26 @@ initial axi_rvalid  = 1'b0;
 		assert(axi_wr_outstanding == ((S_AXI_BVALID)? 1:0));
 	end	
 	*/
+
     /*
     // this "fixes" the bugs
-    always @(*)
-//	    assume(S_AXI_BREADY == 1);
+    always @(*) begin
+	    assume(S_AXI_BREADY == 1);
 	    assume(S_AXI_RREADY == 1);
+    end
+
     */
 
    // cover read and write
-   /*
-*/
    //initial assume(S_AXI_ARESETN == 0);
     always @(*)
     begin
 	    cover(S_AXI_ARESETN && S_AXI_BREADY && S_AXI_BVALID); // write
 	    cover(S_AXI_ARESETN && S_AXI_RREADY && S_AXI_RVALID); // read
     end
+
+    // Dan's formal properties
+    /*
     faxil_slave #( 
             .F_LGDEPTH(F_LGDEPTH),
             .C_AXI_DATA_WIDTH(32),// Fixed, width of the AXI R&W data
@@ -784,6 +794,7 @@ initial axi_rvalid  = 1'b0;
         .f_axi_wr_outstanding(axi_wr_outstanding),
         .f_axi_awr_outstanding(axi_awr_outstanding)
     );
+    */
 `endif
 
 

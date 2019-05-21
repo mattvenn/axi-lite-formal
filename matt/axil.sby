@@ -1,6 +1,6 @@
 [options]
 mode cover
-depth 30
+depth 20
 append 5
 
 [engines]
