@@ -1,0 +1,16 @@
+[options]
+mode cover
+depth 30
+append 5
+
+[engines]
+smtbmc
+
+[script]
+read -formal xlnxdemo.v
+read -formal faxil_slave.v
+prep -top xlnxdemo
+
+[files]
+xlnxdemo.v
+faxil_slave.v

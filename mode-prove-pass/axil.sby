@@ -1,7 +1,6 @@
 [options]
-mode cover
-depth 20
-append 5
+mode prove
+depth 30
 
 [engines]
 smtbmc

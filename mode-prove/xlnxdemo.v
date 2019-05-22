@@ -703,57 +703,32 @@ module xlnxdemo #
 	// User logic ends
 `ifdef FORMAL
 
-	localparam	F_LGDEPTH = 4;
+    localparam	F_LGDEPTH = 4;
     wire [F_LGDEPTH-1:0] axi_rd_outstanding;     
     wire [F_LGDEPTH-1:0] axi_wr_outstanding;     
     wire [F_LGDEPTH-1:0] axi_awr_outstanding;     
 
-
-    // initial 
-    /*
+    // start in reset
     initial axi_arready = 1'b0;
     initial axi_awready = 1'b0;
     initial axi_wready  = 1'b0;
     initial axi_bvalid  = 1'b0;
     initial axi_rvalid  = 1'b0;
-    */
 
-    // or initial assume reset
-    initial assume(S_AXI_ARESETN == 0);
-
-   /*
-   // 2 assertions needed for induction
-   always @(*)
-	if (S_AXI_ARESETN)
-	begin
-		assert(axi_rd_outstanding == ((S_AXI_RVALID)? 1:0));
-		assert(axi_wr_outstanding == ((S_AXI_BVALID)? 1:0));
-	end	
-	*/
-
-    /*
-    // this "fixes" the bugs
-    always @(*) begin
-	    assume(S_AXI_BREADY == 1);
-	    assume(S_AXI_RREADY == 1);
-    end
-
-    */
-
-   // cover read and write
-   //initial assume(S_AXI_ARESETN == 0);
+    // 3 assertions needed for induction
     always @(*)
-    begin
-	    cover(S_AXI_ARESETN && S_AXI_BREADY && S_AXI_BVALID); // write
-	    cover(S_AXI_ARESETN && S_AXI_RREADY && S_AXI_RVALID); // read
-    end
+        if (S_AXI_ARESETN)
+            begin
+                assert(axi_rd_outstanding == ((S_AXI_RVALID)? 1:0));
+                assert(axi_wr_outstanding == ((S_AXI_BVALID)? 1:0));
+                assert(axi_awr_outstanding == axi_wr_outstanding);
+            end	
 
     // Dan's formal properties
-    /*
     faxil_slave #( 
-            .F_LGDEPTH(F_LGDEPTH),
-            .C_AXI_DATA_WIDTH(32),// Fixed, width of the AXI R&W data
-            .C_AXI_ADDR_WIDTH(7)// AXI Address width (log wordsize)
+	    .F_LGDEPTH(F_LGDEPTH),
+	    .C_AXI_DATA_WIDTH(32),// Fixed, width of the AXI R&W data
+	    .C_AXI_ADDR_WIDTH(7)// AXI Address width (log wordsize)
        
         ) properties (
         .i_clk(S_AXI_ACLK),	// System clock
@@ -794,7 +769,6 @@ module xlnxdemo #
         .f_axi_wr_outstanding(axi_wr_outstanding),
         .f_axi_awr_outstanding(axi_awr_outstanding)
     );
-    */
 `endif
 
 
