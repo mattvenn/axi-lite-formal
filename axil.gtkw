@@ -1,21 +1,21 @@
 [*]
-[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Sun May 19 15:58:29 2019
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Thu May 23 12:52:10 2019
 [*]
-[dumpfile] "/home/mattvenn/axi-lite-formal/matt/axil/engine_0/trace0.vcd"
-[dumpfile_mtime] "Sun May 19 15:55:25 2019"
-[dumpfile_size] 72331
-[savefile] "/home/mattvenn/axi-lite-formal/matt/axil.gtkw"
+[dumpfile] "/home/matt/work/fpga/symbiotic-eda/axi-lite-formal/mode-cover/axil/engine_0/trace0.vcd"
+[dumpfile_mtime] "Thu May 23 12:51:16 2019"
+[dumpfile_size] 58721
+[savefile] "/home/matt/work/fpga/symbiotic-eda/axi-lite-formal/axil.gtkw"
 [timestart] 0
-[size] 1082 783
+[size] 1477 1001
 [pos] -1 -1
 *-6.763438 190 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] xlnxdemo.
 [treeopen] xlnxdemo.properties.
-[sst_width] 223
-[signals_width] 250
+[sst_width] 253
+[signals_width] 294
 [sst_expanded] 1
-[sst_vpaned_height] 215
+[sst_vpaned_height] 289
 @28
 xlnxdemo.S_AXI_ACLK
 xlnxdemo.S_AXI_ARESETN
@@ -55,7 +55,5 @@ xlnxdemo.S_AXI_RREADY
 xlnxdemo.S_AXI_RVALID
 @22
 xlnxdemo.axi_rd_outstanding[3:0]
-@24
-xlnxdemo.properties.CHECK_MAX_DELAY.f_axi_rd_ack_delay[3:0]
 [pattern_trace] 1
 [pattern_trace] 0
